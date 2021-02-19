@@ -11,6 +11,7 @@ namespace HogerLager
         static void Main(string[] args)
         {
             Deck deck = new Deck();
+            var rnd = new Random();
 
             /* Console.WriteLine("How many players would you like to play with? Type a number:"); //Choose player number
             int howManyPlayers = Convert.ToInt32(Console.ReadLine());
@@ -81,7 +82,7 @@ namespace HogerLager
                     {
                         //User has lost the bet.
                         //Run ChangeBalance(false); in current player instance;
-                        Console.WriteLine("Card number 2: " + deck.deck[1].Value);
+                        Console.WriteLine("Card number 2: " + deck.deck[1].Name);
                         mainPlayer.ChangeBalance(false);
                         Console.WriteLine("\nUSER LOST $" + mainPlayer.PlayerBet);
                     }
