@@ -164,6 +164,7 @@ namespace HogerLager
                 {
                     userWantsToPlay = false;
                     Console.WriteLine("\nThank you for playing!");
+                    ShowCredits();
                     Environment.Exit(0);
                 }
                 else
@@ -173,6 +174,21 @@ namespace HogerLager
             }
 
             Console.ReadLine();
+        }
+
+        public static void ShowCredits()        // Roll credits with delay.
+        {
+            Console.WriteLine("CREDITS");
+            DrawLine();
+            Thread.Sleep(1000);
+            Console.WriteLine("Daan");
+            Thread.Sleep(1000);
+            Console.WriteLine("Ruben");
+            Thread.Sleep(1000);
+            Console.WriteLine("Badr");
+            Thread.Sleep(1000);
+            Console.WriteLine("Jeremy");
+            Thread.Sleep(1000);
         }
         public static void WriteLineSlow(string message)        // WriteLineSlow method to delay the text being displayed on the screen.
         {
