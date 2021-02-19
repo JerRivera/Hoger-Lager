@@ -50,3 +50,16 @@ D:\Ruben Janse\Bureaublad\higher lower\Hoger-Lager\HogerLager\obj\Debug\netcorea
 D:\Ruben Janse\Bureaublad\higher lower\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.dll
 D:\Ruben Janse\Bureaublad\higher lower\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.pdb
 D:\Ruben Janse\Bureaublad\higher lower\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.genruntimeconfig.cache
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.exe
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.deps.json
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.runtimeconfig.json
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.runtimeconfig.dev.json
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.dll
+C:\Users\mijne\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.pdb
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.csprojAssemblyReference.cache
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.AssemblyInfoInputs.cache
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.AssemblyInfo.cs
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.csproj.CoreCompileInputs.cache
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.dll
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.pdb
+C:\Users\mijne\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.genruntimeconfig.cache

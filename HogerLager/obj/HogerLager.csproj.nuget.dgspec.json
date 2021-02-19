@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ruben Janse\\Bureaublad\\higher lower\\Hoger-Lager\\HogerLager\\HogerLager.csproj": {}
+    "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj": {}
   },
   "projects": {
-    "D:\\Ruben Janse\\Bureaublad\\higher lower\\Hoger-Lager\\HogerLager\\HogerLager.csproj": {
+    "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ruben Janse\\Bureaublad\\higher lower\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
+        "projectUniqueName": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
         "projectName": "HogerLager",
-        "projectPath": "D:\\Ruben Janse\\Bureaublad\\higher lower\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
-        "packagesPath": "C:\\Users\\Ruben Janse\\.nuget\\packages\\",
-        "outputPath": "D:\\Ruben Janse\\Bureaublad\\higher lower\\Hoger-Lager\\HogerLager\\obj\\",
+        "projectPath": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
+        "packagesPath": "C:\\Users\\mijne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ruben Janse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mijne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

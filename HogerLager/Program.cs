@@ -25,6 +25,7 @@ namespace HogerLager
 
             Player mainPlayer = new Player();
 
+            
             DrawLine();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -33,7 +34,6 @@ namespace HogerLager
             Program.WriteLineSlow("and you will have to guess if the second card,\n");
             Program.WriteLineSlow("is higher or lower than the first card!\n");
             Program.WriteLineSlow("Here we go.\n");
-            DrawLine();
             Console.ResetColor();
 
             DrawLine();
@@ -81,7 +81,7 @@ namespace HogerLager
                         // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
                         Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name);
                         Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
-                        string guessInput = Console.ReadLine();
+                        string guessInput = "";
                         //bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
                         while (guessInput != "higher" && guessInput != "equal" && guessInput != "lower")
                         {
@@ -101,7 +101,7 @@ namespace HogerLager
                                     guessInput = "lower";
                                     break;
                                 default:
-                                    PrintError("You need to input either higher, equal, lower or h, e, l!");
+                                    PrintError("\nYou need to input either higher, equal, lower or h, e, l!");
                                     break;
                             }
                         }
@@ -178,8 +178,10 @@ namespace HogerLager
 
         public static void ShowCredits()        // Roll credits with delay.
         {
-            Console.WriteLine("CREDITS");
             DrawLine();
+            Console.WriteLine("CREDITS\n\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("Team OmegaBET :\n");
             Thread.Sleep(1000);
             Console.WriteLine("Daan");
             Thread.Sleep(1000);
