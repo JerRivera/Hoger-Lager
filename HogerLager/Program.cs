@@ -65,6 +65,7 @@ namespace HogerLager
                     // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
                     Console.WriteLine("\nCard number 1: " + deck.deck[0].Value); //DEBUG
                     //Console.WriteLine("Card number 2: " + deck.deck[1].Value); //DEBUG
+                    Console.WriteLine("Do you think the next card will be higher, or lower than the previous one?");
                     string guessInput = Console.ReadLine();
                     bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
 
