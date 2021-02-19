@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
+      "projectUniqueName": "C:\\Users\\mijne\\Source\\Repos\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
       "projectName": "HogerLager",
-      "projectPath": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
+      "projectPath": "C:\\Users\\mijne\\Source\\Repos\\Hoger-Lager\\HogerLager\\HogerLager.csproj",
       "packagesPath": "C:\\Users\\mijne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mijne\\Hoger-Lager\\HogerLager\\obj\\",
+      "outputPath": "C:\\Users\\mijne\\Source\\Repos\\Hoger-Lager\\HogerLager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mijne\\AppData\\Roaming\\NuGet\\NuGet.Config",

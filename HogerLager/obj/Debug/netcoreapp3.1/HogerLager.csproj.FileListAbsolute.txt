@@ -24,3 +24,16 @@ C:\Users\mijne\OneDrive\Bureaublad\HogerLager v2\HogerLager\HogerLager\obj\Debug
 C:\Users\mijne\OneDrive\Bureaublad\HogerLager v2\HogerLager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.dll
 C:\Users\mijne\OneDrive\Bureaublad\HogerLager v2\HogerLager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.pdb
 C:\Users\mijne\OneDrive\Bureaublad\HogerLager v2\HogerLager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.genruntimeconfig.cache
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.exe
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.deps.json
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.runtimeconfig.json
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.runtimeconfig.dev.json
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.dll
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\bin\Debug\netcoreapp3.1\HogerLager.pdb
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.csprojAssemblyReference.cache
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.AssemblyInfoInputs.cache
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.AssemblyInfo.cs
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.csproj.CoreCompileInputs.cache
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.dll
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.pdb
+C:\Users\mijne\Source\Repos\Hoger-Lager\HogerLager\obj\Debug\netcoreapp3.1\HogerLager.genruntimeconfig.cache

@@ -11,7 +11,6 @@ namespace HogerLager
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            deck.PrintDeck();
 
             /* Console.WriteLine("How many players would you like to play with? Type a number:"); //Choose player number
             int howManyPlayers = Convert.ToInt32(Console.ReadLine());
@@ -21,13 +20,14 @@ namespace HogerLager
                 playersList.Add(new Player());
             }
             Console.WriteLine(howManyPlayers + " players created."); //debug */
+
             Player mainPlayer = new Player();
 
-            Program.PrintSlow("Welcome to Higher Lower!\n");                      // Introducing the game
+            /*Program.PrintSlow("Welcome to Higher Lower!\n");                      // Introducing the game
             Program.PrintSlow("In a moment you are going to see two cards,\n");
             Program.PrintSlow("and you will have to guess if the second card,\n");
             Program.PrintSlow("is higher or lower than the first card!\n");
-            Program.PrintSlow("Here we go.\n");
+            Program.PrintSlow("Here we go.\n");*/
 
             while (userWantsToPlay)
             {
@@ -35,7 +35,7 @@ namespace HogerLager
                 while (mainPlayer.Balance > 0) //TODO: What to do when deck gets empty?
                 {
                     // Ask the user which amount of money he wants to bet with.
-                    Console.WriteLine("Which amount of money do you want to bet with? Type a number:");
+                    Console.Write("Input the amount of money you wish to bet: ");
                     int betInput;
                     try
                     {
@@ -63,8 +63,8 @@ namespace HogerLager
                     }
 
                     // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
-                    Console.WriteLine(deck.deck[0].Value); //DEBUG
-                    Console.WriteLine(deck.deck[1].Value); //DEBUG
+                    Console.WriteLine("\nCard number 1: " + deck.deck[0].Value); //DEBUG
+                    //Console.WriteLine("Card number 2: " + deck.deck[1].Value); //DEBUG
                     string guessInput = Console.ReadLine();
                     bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
 
@@ -72,15 +72,17 @@ namespace HogerLager
                     {
                         //User has won bet.
                         //Run ChangeBalance(true); in current player instance;
+                        Console.WriteLine("Card number 2: " + deck.deck[1].Value);
                         mainPlayer.ChangeBalance(true);
-                        Console.WriteLine("USER WON $" + mainPlayer.PlayerBet);
+                        Console.WriteLine("\nUSER WON $" + mainPlayer.PlayerBet);
                     }
                     else
                     {
                         //User has lost the bet.
                         //Run ChangeBalance(false); in current player instance;
+                        Console.WriteLine("Card number 2: " + deck.deck[1].Value);
                         mainPlayer.ChangeBalance(false);
-                        Console.WriteLine("USER LOST $" + mainPlayer.PlayerBet);
+                        Console.WriteLine("\nUSER LOST $" + mainPlayer.PlayerBet);
                     }
 
                     deck.deck.RemoveRange(0, 2); // Remove the first two cards now.
