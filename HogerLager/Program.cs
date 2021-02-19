@@ -66,21 +66,24 @@ namespace HogerLager
                         Console.WriteLine("Amount of bet is higher than your current balance. Using your full available balance of $" + mainPlayer.Balance + " instead.");
                         mainPlayer.PlayerBet = mainPlayer.Balance;
                     }
-                    if (betInput % 10 != 0)
-                    {
-                        PrintError("\nYou can only bet in numbers of 10\n");
-                        continue;
-                    }
                     else
                     {
-                        mainPlayer.PlayerBet = betInput;
+                        if (betInput % 10 != 0)
+                        {
+                            PrintError("\nYou can only bet in numbers of 10\n");
+                            continue;
+                        }
+                        else
+                        {
+                            mainPlayer.PlayerBet = betInput;
+                        }
                     }
 
                     try
                     {
                         // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
                         Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name);
-                        Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
+                        Program.WriteLineSlow("Do you think the next card will be higher, equal or lower than the previous one?");
                         string guessInput = "";
                         //bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
                         while (guessInput != "higher" && guessInput != "equal" && guessInput != "lower")
@@ -112,8 +115,8 @@ namespace HogerLager
                             Program.WriteLineSlow("\nCard number 2: " + deck.deck[1].Name);
                             mainPlayer.ChangeBalance(true);
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Program.WriteLineSlow("\nYOU WON !");
-                            Program.WriteLineSlow("$" + betInput + " added to balance");
+                            Program.WriteLineSlow("\nYOU WON!");
+                            Program.WriteLineSlow("$" + mainPlayer.PlayerBet + " added to balance");
                             Console.ResetColor();
                             DrawLine();
                         }
@@ -181,7 +184,7 @@ namespace HogerLager
             DrawLine();
             Console.WriteLine("CREDITS\n\n");
             Thread.Sleep(1000);
-            Console.WriteLine("Team OmegaBET :\n");
+            Console.WriteLine("Team OmegaBET:\n");
             Thread.Sleep(1000);
             Console.WriteLine("Daan");
             Thread.Sleep(1000);
