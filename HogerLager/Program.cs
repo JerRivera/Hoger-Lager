@@ -96,17 +96,20 @@ namespace HogerLager
                     Console.WriteLine("The game is over, you lost all your money!");
                 }
 
-                Console.WriteLine("Do you want to play again? If so, type yes or y");
-                if (Console.ReadLine() == "yes" || Console.ReadLine() == "y")
+                Console.WriteLine("Do you want to play again? If so: yes/y, if not: no/n");
+                string playAgain = Console.ReadLine();
+                if (playAgain == "yes" || playAgain == "y")
                 {
                     userWantsToPlay = true;
                     deck.ResetDeck();
                     mainPlayer.Balance = 500;
                     Console.Clear();
                 }
-                else
+                else if(playAgain == "no" || playAgain == "n")
                 {
                     userWantsToPlay = false;
+                    Console.WriteLine("\nThank you for playing!");
+                    Environment.Exit(0);
                 }
             }
 
