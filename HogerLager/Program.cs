@@ -13,9 +13,7 @@ namespace HogerLager
             Deck deck = new Deck();
             Console.WindowHeight = 50;
             Console.WindowWidth = 75;
-            Console.WindowLeft = 579;
-            Console.WindowTop = 0;
-
+            
             /* Console.WriteLine("How many players would you like to play with? Type a number:"); //Choose player number
             int howManyPlayers = Convert.ToInt32(Console.ReadLine());
             List<Player> playersList = new List<Player>();
@@ -67,46 +65,63 @@ namespace HogerLager
                         Console.WriteLine("Amount of bet is higher than your current balance. Using your full available balance of $" + mainPlayer.Balance + " instead.");
                         mainPlayer.PlayerBet = mainPlayer.Balance;
                     }
+                    if (betInput % 10 != 0)
+                    {
+                        PrintError("\nYou can only bet in numbers of 10\n");
+                        continue;
+                    }
                     else
                     {
                         mainPlayer.PlayerBet = betInput;
                     }
 
-                    // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
-                    Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name); //DEBUG
-                    //Console.WriteLine("Card number 2: " + deck.deck[1].Value); //DEBUG
-                    Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
-                    string guessInput = Console.ReadLine();
-                    bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
-
-                    if ((deck.deck[1].Value > deck.deck[0].Value && guess) || (deck.deck[1].Value < deck.deck[0].Value && !guess)) //TODO: WHAT IF THE VALUE IS THE SAME
+                    try
                     {
-                        //User has won bet.
-                        //Run ChangeBalance(true); in current player instance;
-                        Program.WriteLineSlow("\nCard number 2: " + deck.deck[1].Name);
-                        mainPlayer.ChangeBalance(true);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Program.WriteLineSlow("\nYOU WON $" + mainPlayer.PlayerBet + "!");
-                        Console.ResetColor();
-                        DrawLine();
+                        // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
+                        Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name);
+                        Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
+                        string guessInput = Console.ReadLine();
+                        bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
+
+                        if ((deck.deck[1].Value > deck.deck[0].Value && guess) || (deck.deck[1].Value < deck.deck[0].Value && !guess)) //TODO: WHAT IF THE VALUE IS THE SAME
+                        {
+                            //User has won bet.
+                            //Run ChangeBalance(true); in current player instance;
+                            Program.WriteLineSlow("\nCard number 2: " + deck.deck[1].Name);
+                            mainPlayer.ChangeBalance(true);
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Program.WriteLineSlow("\nYOU WON !");
+                            Program.WriteLineSlow("$" + betInput + " added to balance");
+                            Console.ResetColor();
+                            DrawLine();
+                        }
+                        else if (deck.deck[1].Value == deck.deck[0].Value)
+                        {
+                            deck.deck[0].Value = deck.deck[2].Value;  // Lowering chances of getting the same value.
+                        }
+                        else
+                        {
+                            //User has lost the bet.
+                            //Run ChangeBalance(false); in current player instance;
+                            Console.WriteLine("Card number 2: " + deck.deck[1].Name);
+                            mainPlayer.ChangeBalance(false);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nYOU LOST $" + mainPlayer.PlayerBet + "");
+                            Console.ResetColor();
+                            DrawLine();
+                        }
+
+                        deck.deck.RemoveRange(0, 2); // Remove the first two cards now.
+                        /* Console.WriteLine(deck.deck[0].Value);
+                        Console.WriteLine(deck.deck[1].Value); */ //Debugging purpose
+
+                        Program.WriteLineSlow("You now have $" + mainPlayer.Balance);
                     }
-                    else
+                    catch (FormatException)
                     {
-                        //User has lost the bet.
-                        //Run ChangeBalance(false); in current player instance;
-                        Console.WriteLine("Card number 2: " + deck.deck[1].Name);
-                        mainPlayer.ChangeBalance(false);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nYOU LOST $" + mainPlayer.PlayerBet + "");
-                        Console.ResetColor();
-                        DrawLine();
+                        PrintError("Invalid input.\n");
+                        continue;
                     }
-
-                    deck.deck.RemoveRange(0, 2); // Remove the first two cards now.
-                    /* Console.WriteLine(deck.deck[0].Value);
-                    Console.WriteLine(deck.deck[1].Value); */ //Debugging purpose
-
-                    Program.WriteLineSlow("You now have $" + mainPlayer.Balance);
                 }
                 if (mainPlayer.Balance <= 0)
                 {
@@ -131,7 +146,7 @@ namespace HogerLager
                 }
                 else
                 {
-                    PrintError("Input invalid\n");
+                    PrintError("Invalid input.\n");
                 }
             }
 
