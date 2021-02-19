@@ -11,7 +11,10 @@ namespace HogerLager
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            var rnd = new Random();
+            Console.WindowHeight = 50;
+            Console.WindowWidth = 75;
+            Console.WindowLeft = 579;
+            Console.WindowTop = 0;
 
             /* Console.WriteLine("How many players would you like to play with? Type a number:"); //Choose player number
             int howManyPlayers = Convert.ToInt32(Console.ReadLine());
@@ -24,11 +27,17 @@ namespace HogerLager
 
             Player mainPlayer = new Player();
 
+            DrawLine();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Program.WriteLineSlow("Welcome to Higher Lower!\n");                      // Introducing the game
             Program.WriteLineSlow("In a moment you are going to see two cards,\n");
             Program.WriteLineSlow("and you will have to guess if the second card,\n");
             Program.WriteLineSlow("is higher or lower than the first card!\n");
             Program.WriteLineSlow("Here we go.\n");
+            Console.ResetColor();
+
+            DrawLine();
 
             while (userWantsToPlay)
             {
@@ -74,9 +83,12 @@ namespace HogerLager
                     {
                         //User has won bet.
                         //Run ChangeBalance(true); in current player instance;
-                        Program.WriteLineSlow("Card number 2: " + deck.deck[1].Name);
+                        Program.WriteLineSlow("\nCard number 2: " + deck.deck[1].Name);
                         mainPlayer.ChangeBalance(true);
-                        Program.WriteLineSlow("\nUSER WON $" + mainPlayer.PlayerBet);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Program.WriteLineSlow("\nYOU WON $" + mainPlayer.PlayerBet + "!");
+                        Console.ResetColor();
+                        DrawLine();
                     }
                     else
                     {
@@ -84,7 +96,10 @@ namespace HogerLager
                         //Run ChangeBalance(false); in current player instance;
                         Console.WriteLine("Card number 2: " + deck.deck[1].Name);
                         mainPlayer.ChangeBalance(false);
-                        Console.WriteLine("\nUSER LOST $" + mainPlayer.PlayerBet);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nYOU LOST $" + mainPlayer.PlayerBet + "");
+                        Console.ResetColor();
+                        DrawLine();
                     }
 
                     deck.deck.RemoveRange(0, 2); // Remove the first two cards now.
@@ -138,6 +153,18 @@ namespace HogerLager
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public static void DrawLine()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            for (int i = 0; i <= 75; i++)
+            {
+                Console.Write("_");
+            }
+
+            Console.WriteLine("\n");
             Console.ResetColor();
         }
     }
