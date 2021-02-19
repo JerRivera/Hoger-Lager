@@ -4,23 +4,30 @@ using System.Text;
 
 namespace HogerLager
 {
-    class Player
+    public class Player
     {
-        public int Balance { get; set; }       // Balance property.
+        public int Balance { get; set; }     // Balance property. Value is (currently) in USD.
         public int PlayerBet { get; set; }      // PlayerBet property.
-        private bool HasWon = false;
 
         public Player()
         {
             Balance = 500;
         }
 
-        public void AdjustBalance()
+        /* Method ChangeBalance
+         * 
+         * Parameter hasWon: If true, the player's last best will be doubled and added back to the balance.
+         */
+        public void ChangeBalance(bool hasWon)
         {
-            if (HasWon)
-                Balance += PlayerBet;
+            if (hasWon)
+            {
+                this.Balance += PlayerBet;
+            }
             else
-                Balance -= PlayerBet;
+            {
+                this.Balance -= PlayerBet;
+            }
         }
     }
 }

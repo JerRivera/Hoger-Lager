@@ -4,16 +4,23 @@ using System.Text;
 
 namespace HogerLager
 {
-    class Deck     
-    {   
-        public List<Card> deck = new List<Card>();     // List of cards.
+    class Deck
+    {
+        public List<Card> deck = new List<Card>();      // List of cards.
 
         public Deck()       // Generating deck of cards upon creation of deck object.
         {
+            ResetDeck();
+        }
+
+        public void ResetDeck()
+        {
+            deck.Clear(); // Make sure deck is empty first, then regenerate and add all cards, then shuffle.
+
             for (int i = 0; i < 52; i++)
             {
                 Card.suite suite = (Card.suite)(Math.Floor((decimal)i / 13));
-                
+
                 int val = i % 13 + 2;
                 deck.Add(new Card(val, suite));
             }
@@ -21,7 +28,7 @@ namespace HogerLager
             ShuffleDeck();
         }
 
-        
+
         public void ShuffleDeck()
         {
             var rnd = new Random();    // Shuffling deck 1000 times.
