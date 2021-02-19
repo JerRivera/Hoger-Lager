@@ -23,19 +23,19 @@ namespace HogerLager
 
             Player mainPlayer = new Player();
 
-            /*Program.PrintSlow("Welcome to Higher Lower!\n");                      // Introducing the game
-            Program.PrintSlow("In a moment you are going to see two cards,\n");
-            Program.PrintSlow("and you will have to guess if the second card,\n");
-            Program.PrintSlow("is higher or lower than the first card!\n");
-            Program.PrintSlow("Here we go.\n");*/
+            Program.WriteLineSlow("Welcome to Higher Lower!\n");                      // Introducing the game
+            Program.WriteLineSlow("In a moment you are going to see two cards,\n");
+            Program.WriteLineSlow("and you will have to guess if the second card,\n");
+            Program.WriteLineSlow("is higher or lower than the first card!\n");
+            Program.WriteLineSlow("Here we go.\n");
 
             while (userWantsToPlay)
             {
-                Console.WriteLine("You now have $" + mainPlayer.Balance);
+                Program.WriteLineSlow("You now have $" + mainPlayer.Balance);
                 while (mainPlayer.Balance > 0) //TODO: What to do when deck gets empty?
                 {
                     // Ask the user which amount of money he wants to bet with.
-                    Console.Write("Input the amount of money you wish to bet: ");
+                    Program.WriteSlow("Input the amount of money you'd like to bet: ");
                     int betInput;
                     try
                     {
@@ -43,12 +43,12 @@ namespace HogerLager
                     }
                     catch (FormatException) // If user inputs in the wrong format.
                     {
-                        PrintError("Bet input needs to be in numbers.");
+                        PrintError("Bet input needs to be in numbers.\n");
                         continue; // Restart from the bet amount question
                     }
                     catch (OverflowException)
                     {
-                        PrintError("Bet input is too high to handle.");
+                        PrintError("Bet input is too high to handle.\n");
                         continue; // Restart from the bet amount question
                     }
 
@@ -63,9 +63,9 @@ namespace HogerLager
                     }
 
                     // Ask if the second card is higher than the first card. If user thinks it is, he/she types "higher" or "h".
-                    Console.WriteLine("\nCard number 1: " + deck.deck[0].Value); //DEBUG
+                    Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name); //DEBUG
                     //Console.WriteLine("Card number 2: " + deck.deck[1].Value); //DEBUG
-                    Console.WriteLine("Do you think the next card will be higher, or lower than the previous one?");
+                    Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
                     string guessInput = Console.ReadLine();
                     bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
 
@@ -73,9 +73,9 @@ namespace HogerLager
                     {
                         //User has won bet.
                         //Run ChangeBalance(true); in current player instance;
-                        Console.WriteLine("Card number 2: " + deck.deck[1].Value);
+                        Program.WriteLineSlow("Card number 2: " + deck.deck[1].Name);
                         mainPlayer.ChangeBalance(true);
-                        Console.WriteLine("\nUSER WON $" + mainPlayer.PlayerBet);
+                        Program.WriteLineSlow("\nUSER WON $" + mainPlayer.PlayerBet);
                     }
                     else
                     {
@@ -90,14 +90,15 @@ namespace HogerLager
                     /* Console.WriteLine(deck.deck[0].Value);
                     Console.WriteLine(deck.deck[1].Value); */ //Debugging purpose
 
-                    Console.WriteLine("You now have $" + mainPlayer.Balance);
+                    Program.WriteLineSlow("You now have $" + mainPlayer.Balance);
                 }
                 if (mainPlayer.Balance <= 0)
                 {
-                    Console.WriteLine("The game is over, you lost all your money!");
+                    Program.WriteLineSlow("The game is over, you lost all your money!");
                 }
 
-                Console.WriteLine("Do you want to play again? If so: yes/y, if not: no/n");
+                
+                Program.WriteLineSlow("Do you want to play again? If so: yes/y, if not: no/n");
                 string playAgain = Console.ReadLine();
                 if (playAgain == "yes" || playAgain == "y")
                 {
@@ -106,19 +107,29 @@ namespace HogerLager
                     mainPlayer.Balance = 500;
                     Console.Clear();
                 }
-                else if(playAgain == "no" || playAgain == "n")
+                else if (playAgain == "no" || playAgain == "n")
                 {
                     userWantsToPlay = false;
                     Console.WriteLine("\nThank you for playing!");
                     Environment.Exit(0);
                 }
+                else
+                {
+                    PrintError("Input invalid\n");
+                }
             }
 
             Console.ReadLine();
         }
-        public static void PrintSlow(string message)        // PrintSlow method
+        public static void WriteLineSlow(string message)        // WriteLineSlow method to delay the text being displayed on the screen.
         {
             Console.WriteLine(message);
+            Thread.Sleep(1000);
+        }
+
+        public static void WriteSlow(string message)        // WriteSlow method to delay the text and keep it all on the same line.
+        {
+            Console.Write(message);
             Thread.Sleep(1000);
         }
 
