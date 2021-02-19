@@ -33,6 +33,7 @@ namespace HogerLager
             Program.WriteLineSlow("and you will have to guess if the second card,\n");
             Program.WriteLineSlow("is higher or lower than the first card!\n");
             Program.WriteLineSlow("Here we go.\n");
+            DrawLine();
             Console.ResetColor();
 
             DrawLine();
@@ -81,12 +82,33 @@ namespace HogerLager
                         Program.WriteLineSlow("\nCard number 1: " + deck.deck[0].Name);
                         Program.WriteLineSlow("Do you think the next card will be higher, or lower than the previous one?");
                         string guessInput = Console.ReadLine();
-                        bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
-
-                        if ((deck.deck[1].Value > deck.deck[0].Value && guess) || (deck.deck[1].Value < deck.deck[0].Value && !guess)) //TODO: WHAT IF THE VALUE IS THE SAME
+                        //bool guess = (guessInput == "higher" || guessInput == "h") ? true : false; // If user inputs 'higher', the guess is that the second value is higher than first card's value. TODO: handling for lower and same etc.
+                        while (guessInput != "higher" && guessInput != "equal" && guessInput != "lower")
+                        {
+                            guessInput = Console.ReadLine();
+                            switch (guessInput)
+                            {
+                                case "h":
+                                case "higher":
+                                    guessInput = "higher";
+                                    break;
+                                case "e":
+                                case "equal":
+                                    guessInput = "equal";
+                                    break;
+                                case "l":
+                                case "lower":
+                                    guessInput = "lower";
+                                    break;
+                                default:
+                                    PrintError("You need to input either higher, equal, lower or h, e, l!");
+                                    break;
+                            }
+                        }
+                        if ((deck.deck[1].Value > deck.deck[0].Value && guessInput == "higher") || (deck.deck[1].Value == deck.deck[0].Value && guessInput == "equal") || (deck.deck[1].Value < deck.deck[0].Value && guessInput == "lower"))
                         {
                             //User has won bet.
-                            //Run ChangeBalance(true); in current player instance;
+                            //Run ChangeBalance(true); in current player instance
                             Program.WriteLineSlow("\nCard number 2: " + deck.deck[1].Name);
                             mainPlayer.ChangeBalance(true);
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -95,14 +117,10 @@ namespace HogerLager
                             Console.ResetColor();
                             DrawLine();
                         }
-                        else if (deck.deck[1].Value == deck.deck[0].Value)
-                        {
-                            deck.deck[0].Value = deck.deck[2].Value;  // Lowering chances of getting the same value.
-                        }
                         else
                         {
                             //User has lost the bet.
-                            //Run ChangeBalance(false); in current player instance;
+                            //Run ChangeBalance(false); in current player instance
                             Console.WriteLine("Card number 2: " + deck.deck[1].Name);
                             mainPlayer.ChangeBalance(false);
                             Console.ForegroundColor = ConsoleColor.Red;
