@@ -41,7 +41,7 @@ namespace HogerLager
             while (userWantsToPlay)
             {
                 Program.WriteLineSlow("You now have $" + mainPlayer.Balance);
-                while (mainPlayer.Balance > 0) //TODO: What to do when deck gets empty?
+                while (mainPlayer.Balance > 0 && deck.deck.Count >= 2) //TODO: What to do when deck gets empty?
                 {
                     // Ask the user which amount of money he wants to bet with.
                     Program.WriteSlow("Input the amount of money you'd like to bet: ");
@@ -144,6 +144,10 @@ namespace HogerLager
                 if (mainPlayer.Balance <= 0)
                 {
                     Program.WriteLineSlow("The game is over, you lost all your money!");
+                }
+                else
+                {
+                    Program.WriteLineSlow("The game is over, the deck has no remaining cards!");
                 }
 
                 
